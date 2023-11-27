@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+            /* Set the theme color to green */
+            body {
+                background-color: #4CAF50 !important;
+                color: #ffffff !important;
+            }
+
+            .ui-widget-header {
+                background: #4CAF50 !important;
+                color: #ffffff !important;
+            }
+
+            .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+                background: #4CAF50 !important;
+            }
+
+            .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover,
+            .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+                background: #45a049 !important;
+            }
+
+            .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+                background: #45a049 !important;
+            }
+
+            .ui-widget-content {
+                border-color: #4CAF50 !important;
+            }
+
+            .ui-datatable .ui-sortable-column {
+                background: #4CAF50 !important;
+            }
+
+            /* Additional styles for specific components */
+            .ui-panelgrid {
+                background: #ffffff !important;
+            }
+
+            .ui-panel {
+                background: #ffffff !important;
+                color: #4CAF50 !important;
+            }
+
+            .ui-barchart {
+                background: #ffffff !important;
+            }
+
+            /* Add any other custom styles as needed */
+        </style>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                <h:form>
+                    <p:panelGrid columns="4">
+                        <p:clock pattern="dd/MM/yyyy" />
+                        <p:clock pattern="hh:mm:ss " />
+                        <p:outputLabel value="Select Calendar"/>
+                        <p:calendar id="cal"  navigator="true" />
+                    </p:panelGrid>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                Footer
+            </p:layoutUnit>
+
+            <p:layoutUnit position="west" size="250" header="Menu" collapsible="true">
+                <h:form>
+                    <p:menu>
+                        <p:submenu label="Navigations">
+                            <p:menuitem value="G. Employe" outcome="/web/employe/employeForm.xhtml" icon="ui-icon-star"/>
+                            
+                            <p:menuitem value="G. Service" outcome="/web/service/serviceForm.xhtml" icon="ui-icon-star"/>
+
+                            
+                            <p:menuitem value="Statistics" outcome="index.xhtml" icon="ui-icon-star"/>
+                            
+                            <p:menuitem value="serviceChef" outcome="/web/service/empserv.xhtml" icon="ui-icon-star"/>
+                           
+
+                        </p:submenu>
+                    </p:menu> 
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="center">
+    <p:panel header="Statistiques">
+        <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto;">
+            <p:barChart value="#{employeBean.initBarModel()}" title="Nombre de employe par service" style="width : 500px; height: 500px"/>
+        </p:panelGrid>
+    </p:panel>
+</p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>
+
